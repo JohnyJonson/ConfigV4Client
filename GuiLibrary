@@ -1,0 +1,42 @@
+function COB(func, btntype : any?)
+	btntype = Instance.new("TextButton", script.Parent)
+	func = {
+		["Name"] = "Created By GuiLibrary",
+		["Callback"] = function()
+			
+		end,
+	}
+	btntype.Activated:Connect(func.Callback())
+end
+function createMsg(Info: boolean, Warning: boolean, content: string)
+	if Warning then
+		local imgLabel = script.Parent.Notification
+		local ContentLabel = imgLabel.Content
+		ContentLabel.Text = content
+		script.Parent.Image = readfile("/ConfigV4/NotifyWarning.png")
+
+		imgLabel.Visible = true
+	end
+end
+function Init()
+	if isfile("/ConfigV4/GuiLibrary.lua") then
+		
+		
+		
+		
+	else
+		
+		makefolder("/ConfigV4")
+		writefile("/ConfigV4/GuiLibrary.lua", script.Source)
+		makefolder("/ConfigV4/assets")
+	end
+end
+		function DisplayConsole(color: string, content : string, delaytime)
+				rconsoleprint(color)
+				rconsoleprint(content)
+	task.wait(delaytime)
+		rconsoleclear()
+end
+function RunHeatSeeker()
+	writefile()
+end
