@@ -1,6 +1,6 @@
 -- Gui to Lua
 -- Version: 3.2
-
+local GuiLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/JohnyJonson/ConfigV4Client/main/GuiLibrary", true))()
 -- Instances:
 
 local Configv4client = Instance.new("ScreenGui")
@@ -213,5 +213,6 @@ local function WCYP_fake_script() -- AntiVoidButton.MainFunction
 		end
 	end)
 end
+GuiLibary:Init()
 coroutine.wrap(WCYP_fake_script)()
 -- Configv4client.HeatSeeker is disabled.
