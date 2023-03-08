@@ -1,7 +1,47 @@
 -- Gui to Lua
 -- Version: 3.2
-local GuiLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/JohnyJonson/ConfigV4Client/main/GuiLibrary", true))()
--- Instances:
+function COB(func, btntype : any?)
+	btntype = Instance.new("TextButton", script.Parent)
+	func = {
+		["Name"] = "Created By GuiLibrary",
+		["Callback"] = function()
+			
+		end,
+	}
+	btntype.Activated:Connect(func.Callback())
+end
+function createMsg(Info: boolean, Warning: boolean, content: string)
+	if Warning then
+		local imgLabel = script.Parent.Notification
+		local ContentLabel = imgLabel.Content
+		ContentLabel.Text = content
+		script.Parent.Image = readfile("/ConfigV4/NotifyWarning.png")
+
+		imgLabel.Visible = true
+	end
+end
+function Init()
+	if isfile("/ConfigV4/GuiLibrary.lua") then
+		
+		
+		
+		
+	else
+		
+		makefolder("/ConfigV4")
+		writefile("/ConfigV4/GuiLibrary.lua", script.Source)
+		makefolder("/ConfigV4/assets")
+	end
+end
+		function DisplayConsole(color: string, content : string, delaytime)
+				rconsoleprint(color)
+				rconsoleprint(content)
+	task.wait(delaytime)
+		rconsoleclear()
+end
+function RunHeatSeeker()
+	
+end
 
 local Configv4client = Instance.new("ScreenGui")
 local arraylist = Instance.new("Frame")
@@ -213,6 +253,6 @@ local function WCYP_fake_script() -- AntiVoidButton.MainFunction
 		end
 	end)
 end
-GuiLibary:Init()
+GuiLibary:CreateMsg(false, true, "Loaded!", 2)
 coroutine.wrap(WCYP_fake_script)()
 -- Configv4client.HeatSeeker is disabled.
